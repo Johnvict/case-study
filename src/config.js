@@ -1,6 +1,6 @@
-const express = require("express");
-const mongoose = require("mongoose");
-require("dotenv").config({ path: `${__dirname}/../config.env` });
+const express = require('express');
+const mongoose = require('mongoose');
+require('dotenv').config({ path: `${__dirname}/../config.env` });
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -15,15 +15,15 @@ try {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
     })
-    .then((_) => console.log("DB connected successfully"));
+    .then(() => console.log('DB connected successfully'));
   app.listen(PORT, () => {
     console.log(`app listening on PORT ${PORT}`);
   });
 } catch (error) {
   console.error(
-    "The app could not connect to Database due to: ",
+    'The app could not connect to Database due to: ',
     error.message
   );
   process.exit(1);
