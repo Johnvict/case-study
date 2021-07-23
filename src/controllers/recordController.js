@@ -43,8 +43,9 @@ module.exports.records = async (req, res) => {
             $lte: endDate,
           },
           totalCount: { $gte: minCount, $lte: maxCount },
-        },
+        }
       },
+      { $sort : { createdAt : 1 } }
     ]);
 
     return res.status(200).json({
