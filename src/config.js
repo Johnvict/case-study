@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const router = require('./router')
+const router = require('./router');
 require('dotenv').config({ path: `${__dirname}/../config.env` });
 
 const app = express();
@@ -19,7 +19,6 @@ try {
       useUnifiedTopology: true,
     })
     .then(() => console.log('DB connected successfully'));
-
 } catch (error) {
   console.error(
     'The app could not connect to Database due to: ',
@@ -28,7 +27,6 @@ try {
   process.exit(1);
 }
 
+app.use('/', router);
 
-app.use('/', router)
-
-module.exports = {app, PORT, DB};
+module.exports = { app, PORT, DB };
